@@ -6,34 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
     <title>Food Website</title>
     <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
 
     <!-- desktop view -->
-    <div class="container" id="container">
+     <div class="container" id="container"> 
         <div id="menu">
             <div class="title">
                 <img src="/images/foodie hunter.png" alt="">
             </div>
             <div class="menu-item">
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Your Orders</a>
-                <a href="#">Wishlists</a>
-                <a href="#">Cart</a>
-                <a href="#">Contact</a>
-                <a href="#">Checkout</a>
+               <button class="menu-btns">About</button>
+                <button class="menu-btns">Service</button>
+              
+               
+                <button class="menu-btns"  id="myBtn"> Your Orders</button>
+                 <button class="menu-btns">Wishlists</button>
+             
+                <button class="menu-btns">Contact</button>
+                <button class="menu-btns">Checkout</button>
             </div>
-        </div>
+        </div> 
+      
+        <!---modal design end-->
+        <div id="myModal" class="modal">
 
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+             
+              <i class="fa fa-cart-plus" id="m-cart-plus"  > 0</i>
+          
+            </div>
+          
+          </div>
         <div id="food-container">
             <div id="header">
                 <div class="add-box">
-                    <i class="fa fa-map-marker your-address" id="add-address"> Your Address</i>
+                    
+                    <i class="fa fa-map-marker your-address" id="add-address" value="Add Map" onclick="showPosition()"> Your Address</i>
                 </div>
+                <div id="embedMap">
+  <!--Google map will be embedded here-->
+</div>
                 <div class="util">
-                    <i class="fa fa-search"> Search</i>
+                    <input type="text" placeholder="Search..">
                     <i class="fa fa-tags"> Offers</i>
                     <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
                 </div>
@@ -79,7 +99,8 @@
                     </tbody>
                 </table>
                 <div class="btn-box">
-                    <button class="cart-btn">Checkout</button>
+                    <button class="cart-btn" href><a href="/checkout.html">Checkout</a> </button>
+
                 </div>
             </div>
         </div>
@@ -87,7 +108,7 @@
         <div id="cart">
             <div class="taste-header">
                 <div class="user">
-                    <i class="fa fa-user-circle" id="circle"> Account</i>
+                    <i class="fa fa-user-circle" id="circle" ><a href="/login.html"> account</a></i>
                     
                 </div>
             </div>
@@ -99,7 +120,7 @@
                 <p id="total-item">Total Item : 5</p>
                 <p id="total-price"></p>
                 <p id="delievery">Free delievery on $ 40</p>
-                <button class="cart-btn">Checkout</button>
+                <button class="cart-btn"><a href="/checkout.html">Checkout</a></button>
             </div>
         </div>
     </div>
@@ -151,8 +172,47 @@
             <p>Cart</p>
             <p>offers</p>
             <p>orders</p>
+            <p><a href="/login.html">account</a></p>
         </div>
     </div>
-    <script src="/index.js" type="module"></script>
+
+
+
+<script>
+    // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+         <script src="/index.js" type="module"></script>
 </body>
 </html>

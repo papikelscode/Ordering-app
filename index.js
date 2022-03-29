@@ -300,6 +300,7 @@ document.querySelectorAll('.add-to-cart').forEach(item=>{
 var cartData= [];
 function addToCart(){
     
+    
     var itemToAdd= this.parentNode.nextSibling.nextSibling.innerText;
     var itemObj= foodItem.find(element=>element.name==itemToAdd);
 
@@ -495,3 +496,5 @@ function addAddress(){
         alert("Address not added")
     }
 }
+
+
